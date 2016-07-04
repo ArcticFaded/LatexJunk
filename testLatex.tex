@@ -1,11 +1,27 @@
-\documentclass[a4paper,10pt]{article}
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[english, russian]{babel}
-\usepackage{color}
-\usepackage{listings}
-\usepackage{titlesec}
-\usepackage{fontspec} 
+\documentclass[a4paper,10pt]{article} % Default font size and paper size
+
+\usepackage{fontspec} % For loading fonts
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin} % Main document font
+\newfontface\fb{LMRoman10}
+
+\usepackage{parskip, url} % Formatting packages%% xunicode,xltxtra are obsolete
+\usepackage[dvipsnames]{xcolor} % Required for specifying custom colors usenames,
+%% usenames is an obsolete option
+
+\usepackage[big]{layaureo} % Margin formatting of the A4 page, an alternative to layaureo %can be \usepackage{fullpage}
+% To reduce the height of the top margin uncomment: \addtolength{\voffset}{-1.3cm}
+
+\usepackage{hyperref} % Required for adding links   and customizing them
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} % Link color
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour} % Set link colors throughout the document
+
+\usepackage{titlesec} % Used to customize the \section command
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule] % Text formatting of sections
+\titlespacing{\section}{0pt}{3pt}{3pt} % Spacing around sections
+
 \begin{document}
+
+\pagestyle{empty} % Removes page numbering
 \section{Hello World!}\label{hello-world}
 \end{document}
