@@ -1,92 +1,128 @@
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template
-%
-% This template has been downloaded from:
-% https://github.com/posquit0/Awesome-CV
-%
-% Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
-%
-% Template license:
-% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-%
+\documentclass[a4paper,10pt]{article}
 
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Configuration
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Themes: Awesome-CV
-\documentclass[11pt, a4paper]{awesome-cv}
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
 
-%%% Override a directory location for fonts(default: 'fonts/')
-\fontdir[fonts/]
+%FONTS
+%\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+%\setmainfont[
+%SmallCapsFont = Fontin-SmallCaps.otf,
+%BoldFont = Fontin-Bold.otf,
+%ItalicFont = Fontin-Italic.otf
+%]
+%{Fontin.otf}
+%%%
 
-%%% Configure a directory location for sections
-\newcommand*{\sectiondir}{resume/}
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
 
-%%% Override color
-% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%                 awesome-nephritis, awesome-concrete, awesome-darknight
-%% Color for highlight
-% Define your custom color if you don't like awesome colors
-\colorlet{awesome}{awesome-red}
-%\definecolor{awesome}{HTML}{CA63A8}
-%% Colors for text
-%\definecolor{darktext}{HTML}{414141}
-%\definecolor{text}{HTML}{414141}
-%\definecolor{graytext}{HTML}{414141}
-%\definecolor{lighttext}{HTML}{414141}
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
 
-%%% Override a separator for social informations in header(default: ' | ')
-%\headersocialsep[\quad\textbar\quad]
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
 
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     3rd party packages
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Needed to divide into several files
-\usepackage{import}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Personal Data
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Essentials
-\name{Claud D.}{Park}
-\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 22738, Rep. of KOREA}
-\mobile{(+82) 10-9030-1843} 
-%%% Social
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
-%%% Optionals
-\position{Software Engineer{\enskip\cdotp\enskip}Security Expert}
-\quote{``Make the change that you want to see in the world."}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Content
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Make a footer for CV with three arguments(<left>, <center>, <right>)
-\makecvfooter
-  {\today}
-  {Claud D. Park~~~·~~~Résumé}
-  {\thepage}
-
+%--------------------BEGIN DOCUMENT----------------------
 \begin{document}
-%%% Make a header for CV with personal data
-\makecvheader
 
-%%% Import contents
-\import{\sectiondir}{education.tex}
-\import{\sectiondir}{experience.tex}
-\import{\sectiondir}{extracurricular.tex}
-\import{\sectiondir}{honors.tex}
-\import{\sectiondir}{presentation.tex}
-\import{\sectiondir}{writing.tex}
-\import{\sectiondir}{committees.tex}
+%WATERMARK TEST [**not part of a CV**]---------------
+%\font\wm=''Baskerville:color=787878'' at 8pt
+%\font\wmweb=''Baskerville:color=FF1493'' at 8pt
+%{\wm 
+%	\begin{textblock}{1}(0,0)
+%		\rotatebox{-90}{\parbox{500mm}{
+%			Typeset by Alessandro Plasmati with \XeTeX\  \today\ for 
+%			{\wmweb \href{http://www.aleplasmati.comuv.com}{aleplasmati.comuv.com}}
+%		}
+%	}
+%	\end{textblock}
+%}
+
+\pagestyle{empty} % non-numbered pages
+
+%\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\sffamily%
+{\small\begin{tabular}[c]{l}
+  \href{https://www.linkedin.com/in/jonathanbeltranus}{My Linkedin}\\
+  \href{https://github.com/ArcticFaded}{https://github.com/ArcticFaded}
+\end{tabular}}\hfill%
+{\Large\bfseries\begin{tabular}[c]{c}
+  ABCD
+\end{tabular}}\hfill%
+{\small\begin{tabular}[c]{r}
+  (786)-343-7674 \\
+  jbelt021@fiu.edu
+\end{tabular}}%
+
+\bigskip
+
+
+%--------------------SECTIONS-----------------------------------
+
+%Section: Education
+\section{Education}
+\begin{tabular}{rl}	
+
+\textsc{Fall} 2013 - Current& Bachelors of Science in \textsc{Computer Science},\\& \textbf{Florida International University}, Miami\\
+
+\textsc{Summer} 2016& Nanodegree in \textsc{Machine Learning},\\& \textbf{Udacity}\\
+
+
+\end{tabular}
+\section{Projects}
+\begin{tabular}{r|p{11cm}}
+ & Sudo Hacks, Stetson University  \href{https://github.com/ArcticFaded/nodeJSProject}{Link to my Project!}\\\textbc{Grabit}&\emph{ A geolocation based File Transfer Protocol Application}\\&\footnotesize{You can host files based on your current location and set a radius for other people to get your file. The application was built on the MEAN stack. The Project can be found on my github under nodeJSProject.  }\\\multicolumn{2}{c}{} \\
+ \textbc{Machine Learning} & Udacity \href{https://github.com/ArcticFaded/Udacity_Machine_Learning}{Link to my Project!}\\&\emph{ Practice and implemented several techniques in machine learning}\\&\footnotesize{During the nanodegree we were required to build 5 projects which consisted of different aspects of machine learning, such as supervised and unsupervised learning as well as some AI}\\\multicolumn{2}{c}{} \\
+\textbc{SDN Routing} & NSF- Research Project, Florida International University\\& \emph{A new routing protocol for Software Defined Networking}\\&\footnotesize{ This was research done during an REU internship in which a modified dijkstras was implemented inorder to route packets through multiple destinations}
+\end{tabular}
+
+%Section: Work Experience at the top
+\section{Work Experience}
+\begin{tabular}{r|p{11cm}}
+ & Undergraduate Research at Florida International University, Miami \\\textsc{Aug 2015 - Current}&\emph{Software Defined Networking Research}\\&\footnotesize{Implemented routing algorithms and software-based network functions in a virtual network.  }\\\multicolumn{2}{c}{} \\
+ \textsc{Jan-May 2015} & Learning Assistant at Florida International University, Miami \\&\emph{Programming I}\\&\footnotesize{Worked with students in a lab setting teaching first-year Java programming.}\\\multicolumn{2}{c}{} \\
+\textsc{Jan 2013 - Current} & STARS tutor at Florida International University, Miami\\& \emph{Multiple Subjects}\\&\footnotesize{STARS is a national organization whose purpose to to perform outreach in the STEM field. Tutored subjects ranging from Programming I to senior level courses in Computer Science}
+\end{tabular}
+
+%Section: Languages
+\section{Technical Skills}
+\begin{tabular}{r|p{11cm}}
+ \textsc{Programming Languages:} & Java, C, C++, Javascript, Python \\
+ \textsc{IDE:} & Eclipse, Netbeans \\
+ \textsc{Technologies:} & Nodejs, sklearn, numpy, Latex \\
+ \textsc{Databases:} & Postgresql, SQL, mongodb \\
+ \multicolumn{2}{c}{} \\
+\end{tabular}
+
+%\newpage
+%\hypertarget{gmat}{\textsc{Gmat}\setmainfont{LMRoman10 Regular}\textregistered\setmainfont[SmallCapsFont=Fontin-SmallCaps]{Fontin-Regular}}
+
+%\XeTeXpdffile ''GMAT.pdf'' page 1 scaled 800
 
 \end{document}
